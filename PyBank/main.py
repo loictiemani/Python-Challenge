@@ -77,11 +77,10 @@ print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decr
 
 
 #set path for analysis
-budget_analysis = os.path.join("Pybank","Analysis","budget_analysis.txt") 
+budget_analysis = os.path.join(".", "PyBank","Analysis","budget_analysis.txt") 
 
-with open("budget_analysis", "w") as txtfile:
+with open(budget_analysis, "w") as txtfile:
     
-
 
 # Write Data to text file
     
