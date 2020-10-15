@@ -3,7 +3,7 @@ import os
 import csv
 
 # set path for file
-budget_path = os.path.join("Resources", "budget_data.csv") 
+budget_path = os.path.join(".","Pybank","Resources", "budget_data.csv") 
 
 # Lists to store data/ Variables
 total_months = 0
@@ -77,9 +77,10 @@ print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decr
 
 
 #set path for analysis
-budget_analysis = os.path.join(".", 'PyBank',"Analysis","budget_analysis.txt") 
+budget_analysis = os.path.join("Pybank","Analysis","budget_analysis.txt") 
 
 with open("budget_analysis", "w") as txtfile:
+    
 
 
 # Write Data to text file
