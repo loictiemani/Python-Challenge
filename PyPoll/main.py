@@ -33,8 +33,8 @@ with open(election_path, "r") as file:
      # Calculate percentage of vote Each Candidate Won by creating new dictionary w     
     percentage = dict(Candidates)
 
-
-Poll_analysis = os.path.join(".", "Pypoll","Analysis","Poll_analysis.txt") 
+#set path for analysis
+Poll_analysis = os.path.join(".", "PyPoll","Analysis","Poll_analysis.txt") 
 
 with open(Poll_analysis, "w") as txtfile:
 
@@ -53,6 +53,7 @@ with open(Poll_analysis, "w") as txtfile:
      # Calculate percentage of vote Each Candidate Won
     for k,v in  percentage.items(): 
         percentage[k] =  round(v *100/ total_votes,2)
+       # Print the candidate's percentage and total number of votes to terminal  
         print(f"{k}: {percentage[k]}% ({v})")
         AllValues.append(percentage[k])
         txtfile.write(f"{k}: {percentage[k]}% ({v})\n")
