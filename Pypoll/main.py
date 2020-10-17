@@ -34,7 +34,7 @@ with open(election_path, "r") as file:
     percentage = dict(Candidates)
 
 
-Poll_analysis = os.path.join(".", "PyPoll","Analysis","Poll_analysis.txt") 
+Poll_analysis = os.path.join(".", "Pypoll","Analysis","Poll_analysis.txt") 
 
 with open(Poll_analysis, "w") as txtfile:
 
