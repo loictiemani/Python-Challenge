@@ -5,8 +5,6 @@ import csv
 # set path for file
 election_path = os.path.join(".","PyPoll" ,"Resources","election_data.csv")
 
-
-
 # Lists to store data/ Variables
 total_votes = 0
 Candidates = {}
