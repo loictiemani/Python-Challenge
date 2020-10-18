@@ -22,7 +22,7 @@ greatest_decrease_month = ""
 
 with open(budget_path, "r") as file:
 
-# CSV Reader Specifies Delimiter 
+# CSV Reader specifies delimiter 
   csvreader = csv.reader(file, delimiter=",")
 
 # Read the header row first
@@ -36,28 +36,28 @@ with open(budget_path, "r") as file:
     # calculating the net total amount of "Profit/Losses"    
       net_total_amount+= int(row[1])
 
-    # Calculate Change From Previous Month to Current Month  
+    # Calculate change from previous month to current month  
 
       if total_months  > 1:
         monthly_change = (int(row[1])- previous_profit_loss)
 
-      # add up the total monthly change, used later to calculate average  
+      # Add up the total monthly change, used later to calculate average  
       total_monthly_change += monthly_change
 
-      # set profit/loss value for previous month
+      # Set profit/loss value for previous month
       previous_profit_loss= int(row[1])
       
-      # calculate greatest increase in profits
+      # Calculate greatest increase in profits
       if monthly_change > greatest_increase:
          greatest_increase = monthly_change
          greatest_increase_month=(row[0])
 
-      # calculate greatest decrease in losses
+      # Calculate greatest decrease in losses
       if monthly_change < greatest_decrease :
           greatest_decrease =monthly_change
           greatest_decrease_month = (row[0])
          
-# calculate average change between months 
+# Calculate average change between months 
 average_monthly_change = round(total_monthly_change/(total_months-1),2) 
 
      
@@ -82,7 +82,7 @@ budget_analysis = os.path.join(".", "PyBank","Analysis","budget_analysis.txt")
 with open(budget_analysis, "w") as txtfile:
     
 
-# Write Data to text file
+# Write data to text file
     
     txtfile.write(f"Financial Analysis\n")
     txtfile.write(f"---------------------------\n")

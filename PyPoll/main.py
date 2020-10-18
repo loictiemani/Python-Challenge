@@ -8,13 +8,13 @@ election_path = os.path.join(".","PyPoll" ,"Resources","election_data.csv")
 # Lists to store data/ Variables
 total_votes = 0
 Candidates = {}
-percentage={}
-AllValues=[]
+win_percentage={}
+All_percentage=[]
 
 # Open and read the CSV
 with open(election_path, "r") as file:
 
-# CSV Reader Specifies Delimiter 
+# CSV Reader Specifies delimiter 
     csv_reader = csv.reader(file,delimiter=",")
    
    # Read the header row first
@@ -30,8 +30,8 @@ with open(election_path, "r") as file:
             Candidates[row[2]]=1
         else:
             Candidates[row[2]]+=1
-     # Calculate percentage of vote Each Candidate Won by creating new dictionary w     
-    percentage = dict(Candidates)
+     # Calculate win_percentage of vote Each Candidate Won by creating new dictionary w     
+    win_percentage = dict(Candidates)
 
 #set path for analysis
 Poll_analysis = os.path.join(".", "PyPoll","Analysis","Poll_analysis.txt") 
@@ -50,20 +50,23 @@ with open(Poll_analysis, "w") as txtfile:
     print("--------------------------")
     txtfile.write("--------------------------\n")
 
-     # Calculate percentage of vote Each Candidate Won
-    for k,v in  percentage.items(): 
-        percentage[k] =  round(v *100/ total_votes,2)
-       # Print the candidate's percentage and total number of votes to terminal  
-        print(f"{k}: {percentage[k]}% ({v})")
-        AllValues.append(percentage[k])
-        txtfile.write(f"{k}: {percentage[k]}% ({v})\n")
+     # Calculate win_percentage of vote each Candidate Won
+    for k,v in  win_percentage.items(): 
+        win_percentage[k] =  round(v *100/ total_votes,2)
+       # Print the candidate's win_percentage and total number of votes to terminal  
+        print(f"{k}: {win_percentage[k]}% ({v})")
+
+        #Create a list of percentages
+        All_percentage.append(win_percentage[k])
+        txtfile.write(f"{k}: {win_percentage[k]}% ({v})\n")
     print("--------------------------")
     txtfile.write("--------------------------\n")
-    # Calculate Winner Of The Election Based On Popular Vote
-    maximum_value = max(AllValues)
-    for k,v in  percentage.items():
+    # Calculate Winner of the Election based on popular vote
+    maximum_value = max(All_percentage)
+    for k,v in  win_percentage.items():
         if v==maximum_value :
             print(f"Winner: {k}")
             txtfile.write(f"Winner: {k}\n")
     print("--------------------------")
     txtfile.write("--------------------------")
+    
